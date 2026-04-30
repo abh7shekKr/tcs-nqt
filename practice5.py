@@ -29,4 +29,30 @@
 # Output 
 # 5 4 3 2 1
 
+def remove_duplicates_reverse(n, arr):
+    if n<=0 or len(arr)!=n:
+        return "Invalid Input"
+    
+    seen = set()
+    unique = []
+    
+    for i in arr:
+        if i not in seen:
+            seen.add(i)
+            unique.append(i)
+            
+    unique.reverse()
+    return unique
 
+try:
+    n = int(input())
+    arr = list(map(int, input().split()))
+    
+    result = remove_duplicates_reverse(n, arr)
+    
+    if result == "Invalid Input":
+        print(result)
+    else:
+        print(*result)
+except:
+    print("Invalid Input")
