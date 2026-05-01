@@ -32,3 +32,15 @@
 # 4 → 1 
 # Both 1 and 3 have same frequency (2), smallest is 
 # 1. 
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+freq = {}
+for i in arr:
+    freq[i] = freq.get(i, 0) + 1
+max_freq = max(freq.values())
+
+print(freq)
+result = min([num for num in freq if freq[num] == max_freq ])
+print(result)

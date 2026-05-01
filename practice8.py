@@ -12,8 +12,7 @@
 # Input Format: 
 # • First line: Integer n  
 # • Second line: n space-separated integers (cost array)  
- 
- 
+
 # • Next n lines: n integers each (matrix)  
 # Output Format: 
 # • Single integer → minimum row sum  
@@ -31,3 +30,25 @@
 # Row 1 → replace 0 with 6 → [1,6,2] → sum = 9 
 # Row 2 → replace 0 with 7 → [3,2,7] → sum = 12 
 # Minimum = 9
+
+import sys
+n = int(input())
+cost = list(map(int, input().split()))
+matrix = []
+for i in range(n):
+    row = list(map(int, input().split()))
+    matrix.append(row)
+min_sum = sys.maxsize
+for j in range(n):
+    sum = 0
+    for k in range(n):
+        if matrix[j][k] == 0:
+            matrix[j][k] = cost[j]
+        sum = sum + matrix[j][k]
+    min_sum = min(min_sum, sum)
+
+print(matrix)
+print(min_sum)
+
+
+            
