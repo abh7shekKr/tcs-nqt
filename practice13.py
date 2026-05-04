@@ -31,3 +31,11 @@
 # Output: 50 
 # Input: 6 
 # Output: 20
+
+parking_time = int(input())
+if parking_time <= 2:
+    print(100)
+elif parking_time > 2 and parking_time <= 5:
+    print(50)
+else:
+    print(20)

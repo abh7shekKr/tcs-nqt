@@ -56,3 +56,46 @@
 # Compute sum for each subset  
 # • 
 # Track maximum sum ≤ maxSum  
+
+
+
+
+
+
+# generating all possible subsets
+# method1: build subsets step by step
+n = int(input())
+arr = list(map(int, input().split()))
+sum_limit = int(input())
+result = [[]]
+
+for i in arr:
+    new_subsets = []
+    for j in result:
+        new_subsets.append(j + [i])
+    result.extend(new_subsets)
+    
+    
+print(result)
+
+max_sum = 0
+for i in result:
+    sum = 0
+    for j in i:
+        sum = sum + j
+    if sum <= sum_limit:
+        max_sum = max(max_sum, sum)
+    
+print(max_sum)
+
+# method2: bit manipulation
+# arr = [4, 8, 2]
+# n = len(arr)
+# result = []
+# for i in range(1 << n):   # 2^n
+#     subset = []
+#     for j in range(n):
+#         if i & (1 << j):
+#             subset.append(arr[j])
+#     result.append(subset)
+# print(result)

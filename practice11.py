@@ -50,3 +50,16 @@
 # 5100.00 
 # Explanation: 
 # 15% of 6000 = 900 → Final = 5100
+
+amount = int(input())
+
+if amount < 1000:
+    discount = 5
+elif amount < 5000:
+    discount = 10
+else:
+    discount = 15
+
+final_amount = amount - (amount * discount) / 100
+
+print(f"{final_amount:.2f}")
